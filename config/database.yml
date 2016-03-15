@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+development:
+  <<: *default
+  database: auction_development
+  host: localhost
+test:
+  <<: *default
+  database: auction_test
+  host: localhost
+production:
+  url: <%= ENV['DATABASE_URL'] %>
+#
+# production:
+#   <<: *default
+#   database: auction_production
+#   username: auction
+#   password: <%= ENV['AUCTION_DATABASE_PASSWORD'] %>
